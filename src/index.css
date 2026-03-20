@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+/* ── Base resets ───────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* GSAP handles smoothing */
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  overflow-x: hidden;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Section wrapper (creates scroll length) ─────── */
+.hero-section {
+  height: 250vh;
+  position: relative;
+  background: #0a0a0a;
+}
+
+/* ── Sticky viewport track ───────────────────────── */
+.hero-track {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c8c8c8 0%, #d4d4d4 50%, #bfbfbf 100%);
+  overflow: hidden;
+}
+
+/* ── Road strip ──────────────────────────────────── */
+.road {
+  width: 100vw;
+  height: 220px;
+  background-color: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Road center line ────────────────────────────── */
+.road::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.15) 0px,
+    rgba(255, 255, 255, 0.15) 30px,
+    transparent 30px,
+    transparent 60px
+  );
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* ── Car image ───────────────────────────────────── */
+.car {
+  height: 180px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 10;
+  will-change: transform;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
+}
+
+/* ── Green trail behind car ──────────────────────── */
+.trail {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e 0%, #4ade80 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  will-change: width;
+  box-shadow: 4px 0 20px rgba(74, 222, 128, 0.3);
+}
+
+/* ── Headline letters container ──────────────────── */
+.headline-container {
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 0.2rem;
+  pointer-events: none;
+}
+
+/* ── Individual headline letters ─────────────────── */
+.headline-letter {
+  font-size: clamp(2rem, 4.5vw, 5rem);
+  font-weight: 900;
+  color: #111111;
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+/* ── Stat cards ──────────────────────────────────── */
+.stat-card {
+  opacity: 0;
+  padding: 28px 32px;
+  border-radius: 16px;
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 6px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  will-change: opacity, transform;
+  transition: box-shadow 0.3s ease;
+  max-width: 280px;
+}
+
+.stat-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.stat-value {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ── Card color variants ─────────────────────────── */
+.stat-card--lime {
+  background: #d4f34f;
+  color: #111111;
+}
+
+.stat-card--sky {
+  background: #6ac9ff;
+  color: #111111;
+}
+
+.stat-card--dark {
+  background: rgba(40, 40, 40, 0.95);
+  color: #ffffff;
+}
+
+.stat-card--orange {
+  background: #fa7328;
+  color: #111111;
+}
+
+/* ── Scroll indicator ────────────────────────────── */
+.scroll-indicator {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.6;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #333;
+}
+
+.scroll-indicator svg {
+  width: 20px;
+  height: 20px;
+  fill: #333;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── After-hero spacer ───────────────────────────── */
+.after-hero {
+  min-height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.after-hero h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #4ade80, #6ac9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

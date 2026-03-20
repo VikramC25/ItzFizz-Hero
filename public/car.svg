@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180">
+  <!-- Car body - top down view facing right -->
+  <defs>
+    <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e85d04"/>
+      <stop offset="50%" stop-color="#f48c06"/>
+      <stop offset="100%" stop-color="#e85d04"/>
+    </linearGradient>
+    <linearGradient id="windshieldGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#2d3748"/>
+    </linearGradient>
+    <linearGradient id="roofGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f48c06"/>
+      <stop offset="100%" stop-color="#dc5204"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Shadow -->
+  <ellipse cx="200" cy="92" rx="175" ry="75" fill="rgba(0,0,0,0.15)" />
+  
+  <!-- Main body -->
+  <path d="M 50 90 
+           Q 50 35, 120 30 
+           L 280 30 
+           Q 350 35, 355 90 
+           Q 350 145, 280 150 
+           L 120 150 
+           Q 50 145, 50 90 Z" 
+        fill="url(#bodyGrad)" stroke="#c44200" stroke-width="1.5"/>
+  
+  <!-- Front bumper -->
+  <path d="M 340 55 Q 375 90, 340 125 L 355 90 Z" fill="#d65a04" stroke="#c44200" stroke-width="1"/>
+  
+  <!-- Rear bumper -->
+  <path d="M 60 55 Q 35 90, 60 125 L 50 90 Z" fill="#d65a04" stroke="#c44200" stroke-width="1"/>
+  
+  <!-- Windshield (front) -->
+  <path d="M 270 42 L 310 55 L 310 125 L 270 138 Z" 
+        fill="url(#windshieldGrad)" rx="5" opacity="0.9"/>
+  
+  <!-- Rear windshield -->
+  <path d="M 110 42 L 80 55 L 80 125 L 110 138 Z" 
+        fill="url(#windshieldGrad)" opacity="0.85"/>
+  
+  <!-- Roof panel -->
+  <rect x="120" y="45" width="145" height="90" rx="8" fill="url(#roofGrad)" opacity="0.7"/>
+  
+  <!-- Center line on roof -->
+  <line x1="120" y1="90" x2="265" y2="90" stroke="#c44200" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Side mirrors -->
+  <ellipse cx="240" cy="28" rx="12" ry="6" fill="#d65a04" stroke="#c44200" stroke-width="1"/>
+  <ellipse cx="240" cy="152" rx="12" ry="6" fill="#d65a04" stroke="#c44200" stroke-width="1"/>
+  
+  <!-- Headlights (front) -->
+  <rect x="345" y="60" width="8" height="18" rx="3" fill="#ffd500" opacity="0.9"/>
+  <rect x="345" y="102" width="8" height="18" rx="3" fill="#ffd500" opacity="0.9"/>
+  
+  <!-- Taillights (rear) -->
+  <rect x="42" y="60" width="8" height="18" rx="3" fill="#ff0000" opacity="0.8"/>
+  <rect x="42" y="102" width="8" height="18" rx="3" fill="#ff0000" opacity="0.8"/>
+  
+  <!-- Front wheel wells -->
+  <rect x="290" y="24" width="35" height="14" rx="5" fill="#222" opacity="0.85"/>
+  <rect x="290" y="142" width="35" height="14" rx="5" fill="#222" opacity="0.85"/>
+  
+  <!-- Rear wheel wells -->
+  <rect x="75" y="24" width="35" height="14" rx="5" fill="#222" opacity="0.85"/>
+  <rect x="75" y="142" width="35" height="14" rx="5" fill="#222" opacity="0.85"/>
+  
+  <!-- Front air intakes -->
+  <rect x="320" y="75" width="15" height="8" rx="3" fill="#1a1a1a" opacity="0.6"/>
+  <rect x="320" y="97" width="15" height="8" rx="3" fill="#1a1a1a" opacity="0.6"/>
+  
+  <!-- Side vents -->
+  <line x1="160" y1="38" x2="180" y2="38" stroke="#1a1a1a" stroke-width="2" opacity="0.4"/>
+  <line x1="160" y1="42" x2="175" y2="42" stroke="#1a1a1a" stroke-width="2" opacity="0.4"/>
+  <line x1="160" y1="142" x2="180" y2="142" stroke="#1a1a1a" stroke-width="2" opacity="0.4"/>
+  <line x1="160" y1="138" x2="175" y2="138" stroke="#1a1a1a" stroke-width="2" opacity="0.4"/>
+</svg>
